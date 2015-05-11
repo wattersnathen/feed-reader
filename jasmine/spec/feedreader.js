@@ -63,13 +63,13 @@ $(function() {
             expect(body.hasClass('menu-hidden')).toBeTruthy();
 
             // click the menu icon
-            $(".menu-icon-link").trigger("click");
+            $(".menu-icon-link").click();
 
             // the menu should now be showing (i.e. 'menu-hidden' should no longer be active)
             expect(body.hasClass('menu-hidden')).toBeFalsy();
 
             // click the menu icon again
-            $(".menu-icon-link").trigger("click");
+            $(".menu-icon-link").click();
 
             // the menu should once again be hidden
             expect(body.hasClass('menu-hidden')).toBeTruthy();
