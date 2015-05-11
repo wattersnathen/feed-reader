@@ -85,9 +85,7 @@ $(function() {
         });
         
         /* Testing that there is at least one entry after a feed has been loaded */
-        it('have been loaded into the .feed container', function(done) {
             expect($('.feed .entry').length > 0).toBeTruthy();
-            done();
         });
 
         /* Go back to initial feed */
@@ -110,9 +108,7 @@ $(function() {
         })
 
         /* Testing that the content changes when a new feed is loaded */
-        it('content changes after loading new feed', function(done) {
             expect($('.feed').find('h2').text()).not.toBe(entries);
-            done();
         });
 
         /* Go back to initial feed */
