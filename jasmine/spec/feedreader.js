@@ -85,7 +85,8 @@ $(function() {
         });
         
         /* Testing that there is at least one entry after a feed has been loaded */
-            expect($('.feed .entry').length > 0).toBeTruthy();
+        it('have been loaded into the .feed container', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
 
         /* Go back to initial feed */
