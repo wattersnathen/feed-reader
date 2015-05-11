@@ -76,14 +76,14 @@ $(function() {
         });
 
     });
-    
+
     describe('Initial Entries', function() {
 
         beforeEach(function(done) {
             // load a new feed
             loadFeed(1, done);
         });
-        
+
         /* Testing that there is at least one entry after a feed has been loaded */
         it('have been loaded into the .feed container', function() {
             expect($('.feed .entry').length).toBeGreaterThan(0);
@@ -96,26 +96,25 @@ $(function() {
     });
 
     describe('New Feed Selection', function() {
-        
-        // current state of screen
-        var entries;
 
         beforeEach(function(done) {
-            // get the current text of the entries
-            entries = $('.feed').find('h2').text();
+            $('.feed').empty(); // start fresh
 
             // load a new feed
             loadFeed(1, done);
-        })
+        });
 
         /* Testing that the content changes when a new feed is loaded */
-            expect($('.feed').find('h2').text()).not.toBe(entries);
-        });
+        it('content changes after loading new feed', function() {
+            var feed = $('.feed').html(); // store current feed text
 
-        /* Go back to initial feed */
-        afterEach(function(done) {
-            loadFeed(0, done);
+            // load a new feed
+            loadFeed(0, function() {
+
+                // feed should have changed
+                expect($('.feed').html()).not.toBe(feed);
+            });
         });
     });
-       
+
 }());
