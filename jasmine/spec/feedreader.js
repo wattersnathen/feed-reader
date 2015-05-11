@@ -29,18 +29,19 @@ $(function() {
         /* Testing that each feed in allFeeds contains a non-empty URL
          */
         it('contain urls', function() {
-            for (var feed in allFeeds) {
-                expect(allFeeds[feed].url).toBeDefined();
-                expect(allFeeds[feed].url.length > 0).toBeTruthy();
+            for (var idx = 0; idx < allFeeds.length; idx++) {
+                expect(allFeeds[idx].url).toBeDefined();
+                expect(allFeeds[idx].url.length).toBeGreaterThan(0);
             }
         });
 
         /* Testing that each feed in allFeeds contains a non-empty name
          */
         it('contain names', function() {
-            for (var feed in allFeeds) {
-                expect(allFeeds[feed].name).toBeDefined();
-                expect(allFeeds[feed].name.length > 0).toBeTruthy();
+            for (var idx = 0; idx < allFeeds.length; idx++) {
+                expect(allFeeds[idx].name).toBeDefined();
+                expect(allFeeds[idx].name.length).toBeGreaterThan(0);
+                expect(typeof allFeeds[idx].name).toBe('string');
             }
         });
     });
