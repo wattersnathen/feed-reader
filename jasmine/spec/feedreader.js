@@ -97,23 +97,27 @@ $(function() {
 
     describe('New Feed Selection', function() {
 
+        var feedTitle = '';
+
         beforeEach(function(done) {
             $('.feed').empty(); // start fresh
 
-            // load a new feed
-            loadFeed(1, done);
+            // load a feed
+            loadFeed(1, function() {
+
+                // grab the feed headings
+                feedTitle = $(".feed .entry h2").text();
+
+                // get another feed
+                loadFeed(0, done);
+            });
         });
 
         /* Testing that the content changes when a new feed is loaded */
         it('content changes after loading new feed', function() {
-            var feed = $('.feed').html(); // store current feed text
 
-            // load a new feed
-            loadFeed(0, function() {
-
-                // feed should have changed
-                expect($('.feed').html()).not.toBe(feed);
-            });
+            // the feed headings should have changed after the second loadFeed request
+            expect($('.feed .entry h2').text()).not.toBe(feedTitle);
         });
     });
 
