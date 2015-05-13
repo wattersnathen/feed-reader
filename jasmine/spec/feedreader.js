@@ -60,19 +60,19 @@ $(function() {
           */
         it('should become visible after menu icon is clicked', function() {
             // start as hidden
-            expect(body.hasClass('menu-hidden')).toBeTruthy();
+            expect(body.hasClass('menu-hidden')).toBe(true);
 
             // click the menu icon
             $(".menu-icon-link").click();
 
             // the menu should now be showing (i.e. 'menu-hidden' should no longer be active)
-            expect(body.hasClass('menu-hidden')).toBeFalsy();
+            expect(body.hasClass('menu-hidden')).toBe(false);
 
             // click the menu icon again
             $(".menu-icon-link").click();
 
             // the menu should once again be hidden
-            expect(body.hasClass('menu-hidden')).toBeTruthy();
+            expect(body.hasClass('menu-hidden')).toBe(true);
         });
 
     });
